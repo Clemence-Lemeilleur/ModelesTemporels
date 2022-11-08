@@ -1,0 +1,23 @@
+p 275.0 170.0 Perron 0 n
+p 460.0 50.0 FEnVoiture 0 n
+p 465.0 300.0 FEnCovoit 0 s
+p 645.0 170.0 TravailFred 0 ne
+t 375.0 100.0 FredVaTravailVoiture nw 0 w n {} ne
+t 365.0 235.0 FredVaTravailCovoit sw 0 w n {} ne
+t 565.0 235.0 FPapote se 40 50 n {} ne
+t 155.0 165.0 FredQuitteMaison s 0 w n {} ne
+t 565.0 105.0 FConduit ne 20 30 n {} ne
+p 30.0 165.0 p0 1 n
+e p0 FredQuitteMaison 1 n
+e FredQuitteMaison Perron 1 n
+e Perron FredVaTravailVoiture 1 n
+e FredVaTravailVoiture FEnVoiture 1 n
+e FEnVoiture FConduit 1 n
+e FConduit TravailFred 1 n
+e Perron FredVaTravailCovoit 1 n
+e FredVaTravailCovoit FEnCovoit 1 n
+e FEnCovoit FPapote 1 n
+e FPapote TravailFred 1 n
+h Fred
+
+

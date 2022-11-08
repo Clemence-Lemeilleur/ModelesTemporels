@@ -1,0 +1,23 @@
+p 255.0 190.0 Perron 0 n
+p 30.0 190.0 p0 1 n
+p 760.0 180.0 TravailJohn 0 n
+p 520.0 50.0 JEnVoiture 0 n
+t 385.0 120.0 JohnVaTravailVoiture n 0 w n {} ne
+t 630.0 110.0 JConduit e 30 40 n {} ne
+t 645.0 280.0 JAttendSonArret se 60 w n {} ne
+p 515.0 355.0 JEnBus 0 s
+t 385.0 285.0 JohnVaTravailBus s 0 w n {} ne
+t 155.0 190.0 JohnQuitteMaison s 0 w n {} ne
+e JConduit TravailJohn 1 n
+e JEnBus JAttendSonArret 1 n
+e JohnVaTravailBus JEnBus 1 n
+e Perron JohnVaTravailBus 1 n
+e JEnVoiture JConduit 1 n
+e JohnVaTravailVoiture JEnVoiture 1 n
+e Perron JohnVaTravailVoiture 1 n
+e JohnQuitteMaison Perron 1 n
+e p0 JohnQuitteMaison 1 n
+e JAttendSonArret TravailJohn 1 n
+h John
+
+

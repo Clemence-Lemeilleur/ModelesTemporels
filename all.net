@@ -1,0 +1,39 @@
+tr 7H20 [10,10] {7h10-07h20}  -> {7h20-8H} 
+tr 7h10 {0h-7h10}  -> {7h10-07h20} 
+tr 8H10 [10,10] {8h-8h10}  -> 
+tr 8h [40,40] {7h20-8H}  -> {8h-8h10} 
+tr FConduit [20,30] FEnVoiture  -> TravailFred 
+tr FPapote [40,50] FEnCovoit  -> TravailFred 
+tr FredQuitteMaison p0  -> Perron 
+tr FredVaTravailCovoit Perron  -> {0-10min} FEnCovoit 
+tr FredVaTravailVoiture Perron  -> {0-10min} FEnVoiture 
+tr JAttendSonArret [60,w[ JEnBus  -> TravailJohn 
+tr JConduit [30,40] JEnVoiture  -> TravailJohn 
+tr JohnQuitteMaison p0  -> Perron 
+tr JohnVaTravailBus Perron  -> JEnBus 
+tr JohnVaTravailVoiture Perron  -> JEnVoiture 
+tr t2 [10,10] {0-10min}  -> {10-20min} 
+tr t3 [10,10] {10-20min}  -> TravailJohn 
+pl {0h-7h10} (1)
+pl {7h10-07h20} (1)
+pl p0 (2)
+tr 7H20 [10,10] {7h10-07h20}  -> {7h20-8H} 
+tr 7h10 {0h-7h10}  -> {7h10-07h20} 
+tr 8H10 [10,10] {8h-8h10}  -> 
+tr 8h [40,40] {7h20-8H}  -> {8h-8h10} 
+tr FConduit [20,30] FEnVoiture  -> TravailFred 
+tr FPapote [40,50] FEnCovoit  -> TravailFred 
+tr FredQuitteMaison p0  -> Perron 
+tr FredVaTravailCovoit Perron  -> {0-10min} FEnCovoit 
+tr FredVaTravailVoiture Perron  -> {0-10min} FEnVoiture 
+tr JAttendSonArret [60,w[ JEnBus  -> TravailJohn 
+tr JConduit [30,40] JEnVoiture  -> TravailJohn 
+tr JohnQuitteMaison p0  -> Perron 
+tr JohnVaTravailBus Perron  -> JEnBus 
+tr JohnVaTravailVoiture Perron  -> JEnVoiture 
+tr t2 [10,10] {0-10min}  -> {10-20min} 
+tr t3 [10,10] {10-20min}  -> TravailJohn 
+pl {0h-7h10} (1)
+pl {7h10-07h20} (1)
+pl p0 (2)
+

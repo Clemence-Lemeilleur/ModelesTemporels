@@ -1,0 +1,11 @@
+p 30.0 85.0 p0 0 n
+t 180.0 145.0 t1 0 w n
+p 345.0 85.0 p1 0 n
+t 180.0 25.0 t0 0 w n
+e p0 t1 1 n
+e t1 p1 1 n
+e t0 p1 1 n
+e p0 t0 1 n
+h buffer
+
+

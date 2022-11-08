@@ -1,0 +1,16 @@
+t 80.0 355.0 FredVaTravailVoiture s 0 w n {} ne
+p 140.0 235.0 {0-10min} 0 e
+t 150.0 135.0 t2 10 10 n
+p 280.0 50.0 {10-20min} 0 n
+t 420.0 60.0 t3 10 10 n
+p 505.0 105.0 TravailJohn 0 n
+t 250.0 360.0 FredVaTravailCovoit s 0 w n {} ne
+e FredVaTravailVoiture {0-10min} 1 n
+e FredVaTravailCovoit {0-10min} 1 n
+e {0-10min} t2 1 n
+e t2 {10-20min} 1 n
+e {10-20min} t3 1 n
+e t3 TravailJohn 1 n
+h HorlogeRel
+
+

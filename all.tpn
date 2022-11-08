@@ -1,0 +1,7 @@
+## les réseaux peuvent etre decrits en texte (.net) ou en graphique (.ndr)
+## les commentaires sont precedes d'un # 
+## pour s'assurer qu'il n'y a pas de pb de composition faire tina -p all.tpn
+source horloges.ndr
+source HorlogeRel.ndr 
+source John.ndr
+source Fred.ndr
