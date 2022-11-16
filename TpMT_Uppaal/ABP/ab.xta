@@ -1,0 +1,42 @@
+
+chan ia,oa,ir,ob;
+
+process sender(chan &e, chan &r) {
+clock x;
+state
+    oisif,
+    wait {x <= 6};
+init oisif;
+trans
+    oisif -> wait { sync e!; assign x:=0;  },
+    wait -> wait { guard x >= 5 && x <= 6; sync e!; assign x:=0;  },
+    wait -> oisif { sync r?; assign x:=0;  };
+}
+
+process receiver(chan &r, chan &e) {
+clock x;
+state
+    oisif,
+    wait {x <= 2};
+init oisif;
+trans
+    oisif -> wait { sync r?; assign x:=0;  },
+    wait -> oisif { guard x <= 2; sync e!;  };
+}
+
+process medium(chan &i, chan &o, const int fiable) {
+clock x;
+state
+    free,
+    mes {x <= 1};
+init free;
+trans
+    free -> mes { sync i?; assign x:=0;  },
+    mes -> free { guard x <= 1 && fiable ==0;  },
+    mes -> free { guard x <= 1; sync o!;  };
+}
+em = sender(ia,ob);
+medemrec = medium(ia,oa,0);
+rec  = receiver(oa,ir);
+medrecem = medium(ir,ob,1);
+system em,medemrec,medrecem,rec;

@@ -1,0 +1,44 @@
+process sender graphinfo {
+location oisif (40,80);
+locationName oisif(-48,-8);
+location wait (190,80);
+locationName wait(26,-8);
+invariant wait(26,8);
+trans oisif wait 1 (-3,-88);
+sync oisif wait 1 (-35,-96);
+assign oisif wait 1 (-19,-96);
+trans wait wait 1 (18,-56);
+trans wait wait 1 (50,-32);
+guard wait wait 1 (26,-72);
+sync wait wait 1 (26,-88);
+assign wait wait 1 (42,-56);
+sync wait oisif 1 (-43,8);
+assign wait oisif 1 (-19,8);
+}
+process receiver graphinfo {
+location oisif (40,80);
+locationName oisif(-10,-30);
+location wait (190,80);
+locationName wait(18,-24);
+invariant wait(18,-8);
+trans oisif wait 1 (-3,-80);
+sync oisif wait 1 (-35,-96);
+assign oisif wait 1 (-11,-96);
+trans wait oisif 1 (-43,0);
+guard wait oisif 1 (-43,8);
+sync wait oisif 1 (29,8);
+}
+process medium graphinfo {
+location free (40,80);
+locationName free(-10,-30);
+location mes (190,80);
+locationName mes(26,-40);
+invariant mes(26,-24);
+trans free mes 1 (-3,-72);
+sync free mes 1 (5,-96);
+assign free mes 1 (5,-80);
+guard mes free 1 (-51,8);
+trans mes free 2 (-3,88);
+guard mes free 2 (-19,104);
+sync mes free 2 (-19,88);
+}
