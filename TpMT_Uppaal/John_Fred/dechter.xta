@@ -1,0 +1,63 @@
+clock global;
+clock FLeavesH;
+
+process fred() {
+
+
+clock Xf;
+state
+    maison,
+    perron { Xf <= 0 },
+    car { Xf <= 30 },
+    cocar { Xf <= 50 },
+    hall,
+    travail_IT,
+    travail_HD;
+urgent
+    hall;
+init
+    maison;
+trans
+    hall -> travail_HD { guard global < 480; },
+    maison -> perron { assign Xf := 0, FLeavesH :=0; },
+    perron -> car { },
+    perron -> cocar { },
+    cocar -> hall { guard Xf >= 40 && Xf <= 50; },
+    car -> hall { guard Xf >= 20 && Xf <= 30; },
+    hall -> travail_IT { guard global >= 480 && global <= 490; },
+    hall -> travail_HD { guard global > 490; };
+}
+
+process jean() {
+
+
+clock Xj ;
+state
+    maison,
+    perron { Xj <= 0 },
+    Bus { Xj <= 60 },
+    Car { Xj <= 40 },
+    hall,
+    travail_IT,
+    travail_HD;
+urgent
+    hall;
+init
+    maison;
+trans
+    hall -> travail_HD { guard FLeavesH > 20; },
+    maison -> perron { guard global >= 430 && global <= 440; assign Xj := 0; },
+    perron -> Bus { },
+    perron -> Car { },
+    Car -> hall { guard Xj >= 30 && Xj <= 40; },
+    Bus -> hall { guard Xj <= 60; },
+    hall -> travail_IT { guard FLeavesH >= 10 && FLeavesH <= 20; },
+    hall -> travail_HD { guard FLeavesH < 10; };
+}
+
+
+John  := jean(); 
+Frederic := fred();
+
+
+system John;

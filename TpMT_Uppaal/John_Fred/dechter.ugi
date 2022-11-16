@@ -1,0 +1,53 @@
+process fred graphinfo {
+trans hall travail_HD 1 (47,-60);
+guard hall travail_HD 1 (22,-85);
+location maison (-92,63);
+locationName maison(-10,-30);
+location perron (102,59);
+locationName perron(-10,-30);
+invariant perron(-10,17);
+location car (187,127);
+locationName car(-10,-30);
+invariant car(-10,17);
+location cocar (187,-17);
+locationName cocar(-10,-30);
+invariant cocar(24,-18);
+location hall (280,68);
+locationName hall(-10,-30);
+location travail_IT (535,-161);
+locationName travail_IT(16,-8);
+location travail_HD (595,136);
+locationName travail_HD(24,-8);
+assign maison perron 1 (-71,2);
+guard cocar hall 1 (-28,-28);
+guard car hall 1 (-21,13);
+guard hall travail_IT 1 (-144,-107);
+guard hall travail_HD 2 (5,25);
+}
+process jean graphinfo {
+trans hall travail_HD 1 (45,70);
+guard hall travail_HD 1 (11,79);
+guard maison perron 1 (-102,8);
+assign maison perron 1 (-177,0);
+location maison (85,68);
+locationName maison(-10,-30);
+location perron (476,68);
+locationName perron(-10,-30);
+invariant perron(-10,17);
+location Bus (655,144);
+locationName Bus(-10,-30);
+invariant Bus(-10,17);
+location Car (655,-25);
+locationName Car(-10,-30);
+invariant Car(24,-18);
+location hall (795,73);
+locationName hall(-10,-30);
+location travail_IT (986,-204);
+locationName travail_IT(16,-8);
+location travail_HD (1088,76);
+locationName travail_HD(24,-8);
+guard Car hall 1 (-4,-33);
+guard Bus hall 1 (2,4);
+guard hall travail_IT 1 (-202,-113);
+guard hall travail_HD 2 (-15,-32);
+}

@@ -1,0 +1,73 @@
+
+chan df, aj;
+
+process Fred() {
+// Place local declarations here.
+clock Xf;
+state
+    maison,
+    perron { Xf <= 0 },
+    cocar { Xf <= 50 },
+    car { Xf <= 30 },
+    hall,
+    travail_HD,
+    travail_IT;
+urgent
+    hall;
+init
+    maison;
+trans
+    car -> hall { guard Xf >= 20 && Xf <= 30; },
+    perron -> car { },
+    hall -> travail_HD { },
+    hall -> travail_IT { },
+    cocar -> hall { guard Xf >= 40 && Xf <= 50; },
+    perron -> cocar { },
+    maison -> perron { sync df!; assign Xf := 0; };
+}
+
+process jean() {
+clock Xj;
+state
+    car { Xj <= 60 },
+    hall,
+    perron { Xj <= 0 },
+    travail_HD,
+    travail_IT,
+    cocar { Xj <= 40 },
+    maison;
+urgent
+    hall;
+init
+    maison;
+trans
+    car -> hall { guard Xj <= 60; },
+    perron -> car { },
+    hall -> travail_HD { },
+    hall -> travail_IT { sync aj!; },
+    cocar -> hall { guard Xj >= 30 && Xj <= 40; },
+    perron -> cocar { },
+    maison -> perron { assign Xj := 0; };
+}
+
+process horloge() {
+clock h;
+
+state
+    O,
+    O_1O { h <= 10 },
+    O1O_2O { h <= 20 },
+    After20;
+init
+    O;
+trans
+    O1O_2O -> O1O_2O { sync aj?; },
+    O1O_2O -> After20 { },
+    O_1O -> O1O_2O { guard h == 10; },
+    O -> O_1O { sync df?; assign h := 0; };
+}
+John := jean();
+Frederic := Fred();
+Horloge := horloge();
+
+system John, Frederic, Horloge;

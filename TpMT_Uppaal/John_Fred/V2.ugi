@@ -1,0 +1,64 @@
+process Fred graphinfo {
+guard car hall 1 (-50,-13);
+guard cocar hall 1 (-135,-127);
+sync maison perron 1 (-76,-17);
+assign maison perron 1 (-76,0);
+location maison (-280,-144);
+locationName maison(-10,-34);
+location perron (-93,-153);
+locationName perron(-10,-34);
+invariant perron(-10,17);
+location cocar (25,-255);
+locationName cocar(-10,-34);
+invariant cocar(-10,17);
+location car (25,-59);
+locationName car(-10,-34);
+invariant car(-10,17);
+location hall (144,-153);
+locationName hall(-10,-34);
+location travail_HD (314,-25);
+locationName travail_HD(-10,-34);
+location travail_IT (323,-272);
+locationName travail_IT(-10,-34);
+}
+process jean graphinfo {
+location car (-3987,60);
+locationName car(-10,-34);
+invariant car(-10,17);
+location hall (-3868,-34);
+locationName hall(-10,-34);
+guard car hall 1 (-8,4);
+location perron (-4105,-34);
+locationName perron(-10,-34);
+invariant perron(-10,17);
+location travail_HD (-3698,94);
+locationName travail_HD(-10,-34);
+location travail_IT (-3689,-153);
+locationName travail_IT(-10,-34);
+sync hall travail_IT 1 (38,-9);
+location cocar (-3987,-136);
+locationName cocar(-25,26);
+invariant cocar(-50,-34);
+guard cocar hall 1 (-34,-42);
+location maison (-4292,-25);
+locationName maison(-10,-34);
+assign maison perron 1 (-76,0);
+}
+process horloge graphinfo {
+trans O1O_2O O1O_2O 1 (51,-93);
+trans O1O_2O O1O_2O 1 (-42,-85);
+sync O1O_2O O1O_2O 1 (-24,-106);
+guard O_1O O1O_2O 1 (-30,-25);
+sync O O_1O 1 (-59,-17);
+assign O O_1O 1 (-60,9);
+location O (-238,-51);
+locationName O(-10,-34);
+location O_1O (-85,-51);
+locationName O_1O(-10,-34);
+invariant O_1O(-25,17);
+location O1O_2O (76,-51);
+locationName O1O_2O(-10,-34);
+invariant O1O_2O(-10,17);
+location After20 (221,-51);
+locationName After20(-10,-34);
+}
